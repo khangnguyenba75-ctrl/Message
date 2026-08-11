@@ -1,0 +1,27 @@
+name: Welcome Friends
+
+languages:
+  - HTML
+  - CSS
+  - JavaScript
+  - Python
+  - CSharp
+  - CPlusPlus
+  - C
+  - PHP
+  - Markdown
+  - YAML
+  - SVG
+
+storage:
+  type: localStorage
+
+features:
+  sign_in: true
+  friends: true
+  friend_requests: true
+  messaging: true
+  phone_call: true
+  camera_call: true
+  emoji: true
+  effects: true
