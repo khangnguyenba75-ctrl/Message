@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Friends</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <section id="welcome" class="screen">
+    <div class="logo">👥</div>
+    <h1>Welcome</h1>
+
+    <label>Name</label>
+    <input id="nameInput" placeholder="Tên người dùng">
+
+    <button class="primary" onclick="signIn()">Sign in</button>
+  </section>
+
+  <section id="home" class="screen hidden">
+    <h1>Welcome</h1>
+
+    <div id="noFriends" class="card">
+      <h2>Bạn chưa kết bạn Với ai</h2>
+
+      <button class="primary" onclick="openSearch()">
+        Kết bạn
+      </button>
+
+      <button class="secondary" onclick="openRequests()">
+        Xem Người Kết bạn
+      </button>
+    </div>
+
+    <div id="friends" class="card hidden">
+      <h2>Bạn bè</h2>
+      <div id="friendList"></div>
+
+      <button class="secondary" onclick="goHome()">
+        Quay lại
+      </button>
+    </div>
+  </section>
+
+  <section id="search" class="screen hidden">
+    <h2>Tìm kiếm</h2>
+
+    <div id="loading">
+      Đang kết nối...
+    </div>
+
+    <div id="searchArea" class="hidden">
+      <input id="searchInput" placeholder="Tên người dùng">
+
+      <button class="primary" onclick="searchUser()">
+        Tìm kiếm
+      </button>
+
+      <div id="searchResult"></div>
+    </div>
+
+    <button class="secondary" onclick="goHome()">
+      Quay lại
+    </button>
+  </section>
+
+  <section id="requests" class="screen hidden">
+    <h2>Người Kết bạn</h2>
+
+    <div id="requestList"></div>
+
+    <button class="secondary" onclick="goHome()">
+      Quay lại
+    </button>
+  </section>
+
+  <section id="profile" class="screen hidden">
+    <h2 id="friendName"></h2>
+
+    <button class="action" onclick="startCall(true)">
+      Gọi Camera
+    </button>
+
+    <button class="action" onclick="startCall(false)">
+      Gọi điện
+    </button>
+
+    <button
+      id="effectButton"
+      class="effectButton"
+      onclick="openEffects()">
+      Tin nhắn của bạn
+    </button>
+
+    <div class="message">
+      <input id="messageInput" placeholder="Nhập tin nhắn">
+      <button onclick="sendMessage()">Gửi</button>
+    </div>
+
+    <button class="secondary" onclick="goHome()">
+      Quay lại
+    </button>
+  </section>
+
+  <section id="effects" class="screen hidden">
+    <h2>Effect</h2>
+
+    <div class="effects">
+      <button onclick="selectEffect('fire')">🔥 Lửa cháy</button>
+      <button onclick="selectEffect('sea')">🌊 Biển</button>
+      <button onclick="selectEffect('wood')">🪵 Gỗ</button>
+      <button onclick="selectEffect('metal')">⚡ Sát</button>
+      <button onclick="selectEffect('diamond')">💎 Kim cương</button>
+      <button onclick="selectEffect('gem')">💠 Đá quý</button>
+    </div>
+
+    <button class="primary" onclick="applyEffect()">
+      Áp dụng
+    </button>
+
+    <button class="secondary" onclick="openProfile()">
+      Quay lại
+    </button>
+  </section>
+
+  <section id="call" class="screen hidden">
+    <h2>Đang gọi</h2>
+
+    <p>Đang gọi (Tin nhắn qua Thiết bị khác)</p>
+
+    <button class="action" onclick="cameraCall()">
+      Gọi camera
+    </button>
+
+    <button id="micro" class="action" onclick="toggleMicro()">
+      Micro: Bật
+    </button>
+
+    <button class="danger" onclick="endCall()">
+      Tắt Gọi
+    </button>
+
+    <div class="reaction">
+      <button
+        id="heart"
+        class="heart"
+        onpointerdown="startHold()"
+        onpointerup="stopHold()"
+        onpointerleave="stopHold()">
+        ❤️
+      </button>
+
+      <div id="emojiPicker" class="emojiPicker hidden">
+        <button onclick="chooseEmoji('❤️')">❤️</button>
+        <button onclick="chooseEmoji('🤗')">🤗</button>
+        <button onclick="chooseEmoji('😚')">😚</button>
+        <button onclick="chooseEmoji('😀')">😀</button>
+        <button onclick="chooseEmoji('🥲')">🥲</button>
+        <button onclick="chooseEmoji('😡')">😡</button>
+        <button onclick="chooseEmoji('🤤')">🤤</button>
+        <button onclick="chooseEmoji('🖕🏻')">🖕🏻</button>
+        <button onclick="chooseEmoji('🤢')">🤢</button>
+        <button onclick="chooseEmoji('📶')">📶</button>
+        <button onclick="chooseEmoji('⚖️')">⚖️</button>
+        <button onclick="chooseEmoji('🦯')">🦯</button>
+        <button onclick="chooseEmoji('👒')">👒</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+  </html>
