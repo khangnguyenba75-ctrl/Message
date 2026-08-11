@@ -1,0 +1,282 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #07101f, #12345c);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  width: min(500px, 94%);
+  margin: auto;
+  padding: 30px 0;
+}
+
+.screen {
+  animation: enter .3s ease;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.logo {
+  text-align: center;
+  font-size: 70px;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin: 20px 0 7px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #40516b;
+  background: #0d1829;
+  color: white;
+  outline: none;
+}
+
+button {
+  border: 0;
+  border-radius: 12px;
+  padding: 13px 16px;
+  margin: 6px 0;
+  cursor: pointer;
+  transition: .2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: scale(.96);
+}
+
+.primary {
+  width: 100%;
+  background: #1976ff;
+  color: white;
+}
+
+.secondary {
+  width: 100%;
+  background: #29384e;
+  color: white;
+}
+
+.card {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.08);
+}
+
+.action {
+  width: 100%;
+  background: #294565;
+  color: white;
+}
+
+.effectButton {
+  width: 100%;
+  background: #734cff;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 20px #734cff55;
+}
+
+.effect-fire {
+  background: linear-gradient(45deg, #ff6a00, #ff1744);
+  box-shadow: 0 0 25px #ff6a00;
+}
+
+.effect-sea {
+  background: linear-gradient(45deg, #0066ff, #00cfff);
+}
+
+.effect-wood {
+  background: linear-gradient(45deg, #613713, #bd7435);
+}
+
+.effect-metal {
+  background: linear-gradient(45deg, #555, #aaa);
+}
+
+.effect-diamond {
+  background: linear-gradient(45deg, #00bcd4, #7c4dff);
+}
+
+.effect-gem {
+  background: linear-gradient(45deg, #e91e63, #673ab7);
+}
+
+.message {
+  display: flex;
+  gap: 7px;
+  margin: 10px 0;
+}
+
+.message input {
+  flex: 1;
+}
+
+.message button {
+  background: #1976ff;
+  color: white;
+}
+
+.result,
+.friend {
+  background: #172840;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 13px;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.result button {
+  background: #1976ff;
+  color: white;
+}
+
+.request {
+  background: #172840;
+  padding: 15px;
+  border-radius: 13px;
+  margin: 10px 0;
+}
+
+.accept {
+  width: 48%;
+  background: #16a34a;
+  color: white;
+}
+
+.reject {
+  width: 48%;
+  background: #dc2626;
+  color: white;
+}
+
+.effects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.effects button {
+  background: #253850;
+  color: white;
+}
+
+#loading {
+  text-align: center;
+  padding: 35px;
+  animation: pulse 1s infinite alternate;
+}
+
+.danger {
+  width: 100%;
+  background: #e53935;
+  color: white;
+}
+
+.reaction {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.heart {
+  background: transparent;
+  font-size: 60px;
+}
+
+.emojiPicker {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: #111a2b;
+  padding: 12px;
+  border-radius: 18px;
+}
+
+.emojiPicker button {
+  background: transparent;
+  font-size: 28px;
+}
+
+.floatingHeart {
+  position: fixed;
+  font-size: 45px;
+  pointer-events: none;
+  animation: floatHeart 1.2s forwards;
+}
+
+#toast {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111827;
+  padding: 13px 20px;
+  border-radius: 15px;
+  opacity: 0;
+  transition: .3s;
+}
+
+#toast.show {
+  opacity: 1;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: .4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes floatHeart {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-180px) scale(1.8);
+  }
+}
